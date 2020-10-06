@@ -27,6 +27,23 @@ public class ExamTimetablingSolution {
 	}
 
 	/**
+	 * @return a string representation of the bookings. One line should describe each exam.
+	 * The exams should be in sequential order as that given in the input file. The timeslot number, the room number.
+	 */
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		for (int i = 0; i < bookings.size(); i++) {
+			final int examNum = i;
+			Booking booking = bookings.stream().filter(b -> b.exam.number == examNum).findFirst().orElseThrow(UnknownError::new);
+
+			builder.append(booking.period.number).append(",").append(booking.room.number).append("\n");
+		}
+
+		return builder.toString();
+	}
+
+	/**
 	 * @return the number of hard constraint violations (Distance to Feasibility) which is the total of the following:
 	 * <p>
 	 * Conflicts: Two conflicting exams in the same period.
