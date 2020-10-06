@@ -27,10 +27,47 @@ public class ExamTimetablingSolution {
 	}
 
 	/**
-	 * The number of conflicting exams in this solution.
+	 * @return the number of hard constraint violations (Distance to Feasibility) which is the total of the following:
 	 * <p>
-	 * See 'Conflicts' at http://www.cs.qub.ac.uk/itc2007/examtrack/exam_track_index_files/examevaluation.htm.
+	 * Conflicts: Two conflicting exams in the same period.
+	 * <p>
+	 * RoomOccupancy: More seating required in any individual period than that available.
+	 * <p>
+	 * PeriodUtilisation: More time required in any individual period than that available.
+	 * <p>
+	 * PeriodRelated: Ordering requirements not obeyed.
+	 * <p>
+	 * RoomRelated: Room requirements not obeyed
+	 * <p>
+	 * See http://www.cs.qub.ac.uk/itc2007/examtrack/exam_track_index_files/examevaluation.htm for more details.
 	 */
+	public int distanceToFeasibility() {
+		return this.conflictingExams() + this.overbookedPeriods() + this.tooShortPeriods()
+				+ this.periodConstraintViolations() + this.roomConstraintViolations();
+	}
+
+	/**
+	 * @return the total penalty of soft constraint violations. This is the total of the following:
+	 * <p>
+	 * Two Exams in a Row
+	 * <p>
+	 * Two Exams in a Day
+	 * <p>
+	 * Period Spread
+	 * <p>
+	 * Mixed Durations
+	 * <p>
+	 * Larger Exams Constraints
+	 * <p>
+	 * Room Penalty
+	 * <p>
+	 * See http://www.cs.qub.ac.uk/itc2007/examtrack/exam_track_index_files/examevaluation.htm for more details.
+	 */
+	public int softConstraintViolations() {
+		return this.twoInARowPenalty() + this.twoInADayPenalty() + this.frontloadPenalty() +
+				this.mixedDurationsPenalty() + this.periodSpreadPenalty() + this.roomPenalty() + this.periodPenalty();
+	}
+
 	private int conflictingExams = -1;
 
 	public int conflictingExams() {
@@ -48,11 +85,6 @@ public class ExamTimetablingSolution {
 		return conflictingExams;
 	}
 
-	/**
-	 * The number of overbooked periods in this solution.
-	 * <p>
-	 * See 'RoomOccupancy' at http://www.cs.qub.ac.uk/itc2007/examtrack/exam_track_index_files/examevaluation.htm.
-	 */
 	private int overbookedPeriods = -1;
 
 	public int overbookedPeriods() {
@@ -69,11 +101,6 @@ public class ExamTimetablingSolution {
 		return overbookedPeriods;
 	}
 
-	/**
-	 * The number of periods that are too short in this solution.
-	 * <p>
-	 * See 'PeriodUtilisation' at http://www.cs.qub.ac.uk/itc2007/examtrack/exam_track_index_files/examevaluation.htm.
-	 */
 	private int tooShortPeriods = -1;
 
 	public int tooShortPeriods() {
@@ -87,11 +114,6 @@ public class ExamTimetablingSolution {
 		return tooShortPeriods;
 	}
 
-	/**
-	 * The number of period hard constraint violations in this solution.
-	 * <p>
-	 * See 'PeriodRelated' at http://www.cs.qub.ac.uk/itc2007/examtrack/exam_track_index_files/examevaluation.htm.
-	 */
 	private int periodConstraintViolations = -1;
 
 	public int periodConstraintViolations() {
