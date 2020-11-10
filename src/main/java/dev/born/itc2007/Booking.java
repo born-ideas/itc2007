@@ -1,4 +1,4 @@
-package uk.ac.qub.cs.itc2007;
+package dev.born.itc2007;
 
 /**
  * Models a specific booking for an exam.

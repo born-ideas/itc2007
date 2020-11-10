@@ -1,4 +1,4 @@
-package uk.ac.qub.cs.itc2007;
+package dev.born.itc2007;
 
 /**
  * Models a room in which an exam can be scheduled.
