@@ -6,7 +6,7 @@
 
     <groupId>dev.born</groupId>
     <artifactId>itc2007</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <packaging>jar</packaging>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
