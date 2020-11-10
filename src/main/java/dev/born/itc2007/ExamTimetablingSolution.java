@@ -175,7 +175,7 @@ public class ExamTimetablingSolution {
 	private int roomConstraintViolations = -1;
 
 	/**
-	 * The number of room hard constraint violations in this solution. See 'RoomRelated' at http://www.cs.qub.ac.uk/itc2007/examtrack/exam_track_index_files/examevaluation.htm.
+	 * @return The number of room hard constraint violations in this solution. See 'RoomRelated' at http://www.cs.qub.ac.uk/itc2007/examtrack/exam_track_index_files/examevaluation.htm.
 	 */
 	public int roomConstraintViolations() {
 		if (roomConstraintViolations != -1) return roomConstraintViolations;
@@ -195,7 +195,7 @@ public class ExamTimetablingSolution {
 	private int twoInARowPenalty = -1;
 
 	/**
-	 * The number of occurrences where two examinations are taken by students straight after one another. See 'Two Exams in a Row' at http://www.cs.qub.ac.uk/itc2007/examtrack/exam_track_index_files/examevaluation.htm.
+	 * @return The number of occurrences where two examinations are taken by students straight after one another. See 'Two Exams in a Row' at http://www.cs.qub.ac.uk/itc2007/examtrack/exam_track_index_files/examevaluation.htm.
 	 */
 	public int twoInARowPenalty() {
 		if (twoInARowPenalty != -1) return twoInARowPenalty;
@@ -218,7 +218,7 @@ public class ExamTimetablingSolution {
 	private int twoInADayPenalty = -1;
 
 	/**
-	 * The number of occurrences of students having two exams in a day which are not directly adjacent. See 'Two Exams in a Day' at http://www.cs.qub.ac.uk/itc2007/examtrack/exam_track_index_files/examevaluation.htm.
+	 * @return The number of occurrences of students having two exams in a day which are not directly adjacent. See 'Two Exams in a Day' at http://www.cs.qub.ac.uk/itc2007/examtrack/exam_track_index_files/examevaluation.htm.
 	 */
 	public int twoInADayPenalty() {
 		if (twoInADayPenalty != -1) return twoInADayPenalty;
@@ -242,7 +242,7 @@ public class ExamTimetablingSolution {
 	private int periodSpreadPenalty = -1;
 
 	/**
-	 * Occurrences of enrolled students who have to sit other exams within the desired period spread. See 'Period Spread' at http://www.cs.qub.ac.uk/itc2007/examtrack/exam_track_index_files/examevaluation.htm.
+	 * @return Occurrences of enrolled students who have to sit other exams within the desired period spread. See 'Period Spread' at http://www.cs.qub.ac.uk/itc2007/examtrack/exam_track_index_files/examevaluation.htm.
 	 */
 	public int periodSpreadPenalty() {
 		if (periodSpreadPenalty != -1) return periodSpreadPenalty;
@@ -266,7 +266,7 @@ public class ExamTimetablingSolution {
 	private int mixedDurationsPenalty = -1;
 
 	/**
-	 * This applies a penalty to a ROOM and PERIOD (not Exam) where there are mixed durations. See 'Mixed Durations' at http://www.cs.qub.ac.uk/itc2007/examtrack/exam_track_index_files/examevaluation.htm.
+	 * @return This applies a penalty to a ROOM and PERIOD (not Exam) where there are mixed durations. See 'Mixed Durations' at http://www.cs.qub.ac.uk/itc2007/examtrack/exam_track_index_files/examevaluation.htm.
 	 */
 	public int mixedDurationsPenalty() {
 		if (mixedDurationsPenalty != -1) return mixedDurationsPenalty;
@@ -291,7 +291,7 @@ public class ExamTimetablingSolution {
 	private int frontloadPenalty = -1;
 
 	/**
-	 * This applies a penalty for largest numbers of students are timetabled at the beginning of the examination session. See 'Larger Exams Constraints' at http://www.cs.qub.ac.uk/itc2007/examtrack/exam_track_index_files/examevaluation.htm.
+	 * @return This applies a penalty for largest numbers of students are timetabled at the beginning of the examination session. See 'Larger Exams Constraints' at http://www.cs.qub.ac.uk/itc2007/examtrack/exam_track_index_files/examevaluation.htm.
 	 */
 	public int frontloadPenalty() {
 		if (frontloadPenalty != -1) return frontloadPenalty;
@@ -320,7 +320,7 @@ public class ExamTimetablingSolution {
 	private int roomPenalty = -1;
 
 	/**
-	 * For each period, if a room used within the solution has an associated penalty, the penalty for that room for that
+	 * @return For each period, if a room used within the solution has an associated penalty, the penalty for that room for that
 	 * period is calculated by multiplying the associated penalty by the number of times the room is used. See 'Room Penalty' at http://www.cs.qub.ac.uk/itc2007/examtrack/exam_track_index_files/examevaluation.htm.
 	 */
 	public int roomPenalty() {
@@ -336,7 +336,7 @@ public class ExamTimetablingSolution {
 	private int periodPenalty = -1;
 
 	/**
-	 * For each period the penalty is calculated by multiplying the associated penalty by the number of times the exams
+	 * @return For each period the penalty is calculated by multiplying the associated penalty by the number of times the exams
 	 * timetabled within that period. See 'Period Penalty' at http://www.cs.qub.ac.uk/itc2007/examtrack/exam_track_index_files/examevaluation.htm.
 	 */
 	public int periodPenalty() {
