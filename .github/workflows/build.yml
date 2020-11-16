@@ -22,3 +22,13 @@ jobs:
         java-version: 11
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+      id: build
+    - name: Github Check
+      uses: LouisBrunner/checks-action@v1.1.1
+      if: always()
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        name: Build with Maven
+        conclusion: ${{ job.status }}
+        output: |
+          {"summary":${{ steps.build.outputs.summary }}}
